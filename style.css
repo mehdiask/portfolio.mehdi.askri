@@ -548,10 +548,11 @@ section {
   }
   /* back-to-top for mobile*/
   .back-to-top {
-    width: 56px;
-    height: 56px;
-    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    bottom: 80px; /* Move it up to avoid the iOS navigation bar */
     right: 20px;
-    z-index: 9999; /* Ensure it's above everything */
+    background: var(--accent);
+    z-index: 9999;
   }
 }
