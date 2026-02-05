@@ -410,10 +410,10 @@ section {
 }
 
 /* ===============================
-   MODERN MOBILE TOP NAV
+   MOBILE ICON NAV (TOP)
    =============================== */
 
-.mobile-top-nav {
+.mobile-nav {
   display: none;
 }
 
@@ -425,57 +425,58 @@ section {
     display: none;
   }
 
-  .mobile-top-nav {
-    display: block;
-    position: sticky;
+  /* Show mobile nav at top */
+  .mobile-nav {
+    display: flex;
+    position: fixed;
     top: 0;
-    z-index: 2000;
+    left: 0;
+    right: 0;
+
+    justify-content: space-around;
+    align-items: center;
+
     background: var(--nav-bg);
+    padding: 10px 6px;
+    z-index: 3000;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   }
 
-  .mobile-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 16px;
-  }
-
-  .mobile-menu-btn {
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: var(--text-main);
-    cursor: pointer;
-  }
-
-  .mobile-menu {
-    max-height: 0;
-    overflow: hidden;
-    background: var(--nav-bg);
-    transition: max-height 0.35s ease;
-  }
-
-  .mobile-menu.open {
-    max-height: 420px;
-  }
-
-  .mobile-menu a {
-    display: block;
-    padding: 16px;
+  .mobile-nav a {
     text-decoration: none;
     color: var(--text-main);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    font-size: 0.75rem;
     font-weight: 500;
-    border-top: 1px solid rgba(255,255,255,0.06);
+
+    min-width: 60px;
+    padding: 6px 0;
+
+    transition: color 0.2s ease, transform 0.2s ease;
   }
 
-  .mobile-menu a:hover {
-    background: rgba(255,255,255,0.05);
+  .mobile-nav a span {
+    font-size: 0.7rem;
+    opacity: 0.85;
   }
 
-  .mobile-theme-btn {
-    width: calc(100% - 32px);
-    margin: 16px;
-    justify-content: center;
+  .mobile-nav a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
   }
+
+  /* Prevent content hidden behind nav */
+  body {
+    padding-top: 70px;
+  }
+}
+.mobile-nav a.active {
+  color: var(--accent);
 }
