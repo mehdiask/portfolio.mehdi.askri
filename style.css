@@ -341,7 +341,7 @@ section {
   margin-top: 20px;
   padding: 12px 22px;
   border-radius: 30px;
-  background: var(--accent);
+  background: var(--accent); /* Keep using --accent */
   color: #ffffff;
   font-weight: 600;
   text-decoration: none;
@@ -408,6 +408,7 @@ section {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(34, 211, 238, 1.35);
 }
+
 /* ===============================
    MOBILE NAVBAR ONLY (PC UNCHANGED)
    =============================== */
@@ -417,39 +418,38 @@ section {
     position: sticky;
     top: 0;
     z-index: 2000;
-    
     flex-direction: column;
     align-items: stretch;
     padding: 12px 16px;
-    min-height: auto; /* Add this */
   }
 
-  /* First row: theme + logo */
-  .navbar > div:first-child {
+  /* Create a header row for theme button and logo */
+  .navbar-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     margin-bottom: 12px;
   }
 
-  /* Move logo inside the first div */
+  /* Keep logo centered */
   .logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    flex-grow: 1;
   }
 
   .logo span {
     font-size: 1rem;
+    white-space: nowrap;
   }
 
   /* Second row: navigation buttons */
   .navbar ul {
     display: flex;
     flex-direction: row;
-    gap: 8px; /* Reduced gap */
+    gap: 8px;
     overflow-x: auto;
     padding: 8px 0;
     margin: 0;
@@ -457,7 +457,7 @@ section {
   }
 
   .navbar ul::-webkit-scrollbar {
-    display: none; /* Hide scrollbar */
+    display: none;
   }
 
   .navbar ul li {
@@ -467,8 +467,8 @@ section {
   /* Make buttons smaller for mobile */
   .navbar ul a {
     white-space: nowrap;
-    font-size: 0.85rem; /* Smaller font */
-    padding: 8px 14px; /* Smaller padding */
+    font-size: 0.85rem;
+    padding: 8px 14px;
   }
 
   /* Adjust hero section */
@@ -480,6 +480,14 @@ section {
 
   .hero-text {
     margin-bottom: 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
   }
 
   .hero-image .circle {
@@ -494,8 +502,7 @@ section {
 
   /* Fix grid for mobile */
   .grid {
-    grid-template-columns: 1fr; /* Single column on mobile */
+    grid-template-columns: 1fr;
     gap: 15px;
   }
 }
-
