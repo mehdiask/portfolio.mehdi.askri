@@ -410,10 +410,10 @@ section {
 }
 
 /* ===============================
-   MODERN MOBILE BOTTOM NAV
+   MODERN MOBILE TOP NAV
    =============================== */
 
-.mobile-nav {
+.mobile-top-nav {
   display: none;
 }
 
@@ -425,59 +425,57 @@ section {
     display: none;
   }
 
-  /* Show bottom nav */
-  .mobile-nav {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    background: var(--nav-bg);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 10px 6px;
+  .mobile-top-nav {
+    display: block;
+    position: sticky;
+    top: 0;
     z-index: 2000;
-
-    justify-content: space-around;
-    align-items: center;
-
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.35);
+    background: var(--nav-bg);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   }
 
-  .mobile-nav a {
+  .mobile-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+  }
+
+  .mobile-menu-btn {
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+  }
+
+  .mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    background: var(--nav-bg);
+    transition: max-height 0.35s ease;
+  }
+
+  .mobile-menu.open {
+    max-height: 420px;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 16px;
     text-decoration: none;
     color: var(--text-main);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-
-    font-size: 0.75rem;
     font-weight: 500;
-
-    min-width: 60px;
-    padding: 6px 0;
-
-    transition: transform 0.2s ease, color 0.2s ease;
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
 
-  .mobile-nav a span {
-    font-size: 0.7rem;
-    opacity: 0.8;
+  .mobile-menu a:hover {
+    background: rgba(255,255,255,0.05);
   }
 
-  .mobile-nav a:hover {
-    transform: translateY(-2px);
-    color: var(--accent);
+  .mobile-theme-btn {
+    width: calc(100% - 32px);
+    margin: 16px;
+    justify-content: center;
   }
-
-  /* Add space so content not hidden */
-  body {
-    padding-bottom: 75px;
-  }
-}
-
-.mobile-nav a.active {
-  color: var(--accent);
 }

@@ -72,3 +72,21 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+// ===== MOBILE MENU =====
+const mobileBtn = document.getElementById("mobileMenuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if (mobileBtn && mobileMenu) {
+  mobileBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+  });
+}
+
+// ===== MOBILE THEME TOGGLE (SYNC) =====
+const mobileThemeBtn = document.getElementById("theme-toggle-mobile");
+
+if (mobileThemeBtn) {
+  mobileThemeBtn.addEventListener("click", () => {
+    toggle.click(); // reuse existing theme logic
+  });
+}
