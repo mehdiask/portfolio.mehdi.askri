@@ -419,21 +419,17 @@ section {
     top: 0;
     z-index: 2000;
     padding: 12px 16px;
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  /* Create a header row for logo + theme button */
-  .navbar-header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 10px;
     align-items: center;
-    width: 100%;
-    margin-bottom: 12px;
   }
   
-  /* Logo adjustments */
+  /* Logo in top-left */
   .logo {
+    grid-column: 1;
+    grid-row: 1;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -449,40 +445,38 @@ section {
     white-space: nowrap;
   }
   
-  /* Create a container for all navigation items including theme button */
-  .nav-container {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding: 8px 0;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
+  /* Theme button in top-right */
+  .theme-container {
+    grid-column: 2;
+    grid-row: 1;
   }
   
-  .nav-container::-webkit-scrollbar {
+  /* Hide text in theme button on mobile */
+  .theme-btn .text {
     display: none;
   }
   
-  /* Hide the original UL and theme container */
-  .navbar ul,
-  .theme-container {
+  .theme-btn .icon {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  /* Navigation buttons take full width in second row */
+  .navbar > ul {
+    grid-column: 1 / span 2;
+    grid-row: 2;
     display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
     margin: 0;
     padding: 0;
     list-style: none;
-    gap: 8px;
-    flex-shrink: 0;
+    width: 100%;
   }
   
-  .navbar ul {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-  }
-  
-  /* Make all nav items (buttons + theme button) same style for mobile */
-  .navbar ul a,
-  .theme-btn {
+  /* Style all navigation buttons */
+  .navbar ul a {
     white-space: nowrap;
     font-size: 0.85rem;
     padding: 8px 14px;
@@ -491,37 +485,24 @@ section {
     color: #020617;
     font-weight: 600;
     text-decoration: none;
-    border: none;
-    cursor: pointer;
+    display: inline-block;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
   }
   
-  /* Dark theme for mobile nav items */
-  [data-theme="dark"] .navbar ul a,
-  [data-theme="dark"] .theme-btn {
+  /* Dark mode for navigation buttons */
+  [data-theme="dark"] .navbar ul a {
     color: #ffffff;
   }
   
-  /* Hide theme button text on mobile to save space */
-  .theme-btn .text {
-    display: none;
-  }
-  
-  /* Keep just the icon for theme button on mobile */
-  .theme-btn .icon {
-    font-size: 1.2rem;
-    margin: 0;
-  }
-  
-  /* Hover effects for mobile nav items */
-  .navbar ul a:hover,
-  .theme-btn:hover {
+  /* Hover effect */
+  .navbar ul a:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
+  }
+  
+  /* Make "Let's Talk" button stand out if needed */
+  .talk-btn {
+    /* Add any special styling for this button on mobile if desired */
   }
   
   /* Adjust hero section */
