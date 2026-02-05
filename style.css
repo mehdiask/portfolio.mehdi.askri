@@ -419,92 +419,143 @@ section {
     top: 0;
     z-index: 2000;
     padding: 12px 16px;
+    flex-direction: column;
+    align-items: stretch;
   }
-
-  /* Top row container */
-  .navbar-top {
+  
+  /* Create a header row for logo + theme button */
+  .navbar-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-bottom: 12px;
   }
-
-  /* Make logo smaller on mobile */
+  
+  /* Logo adjustments */
   .logo {
     display: flex;
     align-items: center;
     gap: 8px;
   }
-
+  
   .logo img {
     width: 28px;
     height: 28px;
   }
-
+  
   .logo span {
     font-size: 0.9rem;
     white-space: nowrap;
   }
-
-  /* Second row: navigation buttons */
+  
+  /* Create a container for all navigation items including theme button */
+  .nav-container {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px 0;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+  
+  .nav-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide the original UL and theme container */
+  .navbar ul,
+  .theme-container {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  
   .navbar ul {
     display: flex;
     flex-direction: row;
+    gap: 8px;
+  }
+  
+  /* Make all nav items (buttons + theme button) same style for mobile */
+  .navbar ul a,
+  .theme-btn {
+    white-space: nowrap;
+    font-size: 0.85rem;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #0ea5a4, #22d3ee);
+    color: #020617;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
     gap: 6px;
-    overflow-x: auto;
-    padding: 8px 0;
-    margin: 0;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .navbar ul::-webkit-scrollbar {
-    display: none;
-  }
-
-  .navbar ul li {
     flex-shrink: 0;
   }
-
-  /* Make buttons smaller for mobile */
-  .navbar ul a {
-    white-space: nowrap;
-    font-size: 0.8rem;
-    padding: 6px 10px;
+  
+  /* Dark theme for mobile nav items */
+  [data-theme="dark"] .navbar ul a,
+  [data-theme="dark"] .theme-btn {
+    color: #ffffff;
   }
-
+  
+  /* Hide theme button text on mobile to save space */
+  .theme-btn .text {
+    display: none;
+  }
+  
+  /* Keep just the icon for theme button on mobile */
+  .theme-btn .icon {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  /* Hover effects for mobile nav items */
+  .navbar ul a:hover,
+  .theme-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
+  }
+  
   /* Adjust hero section */
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 30px 15px;
+    padding: 40px 20px;
   }
-
+  
   .hero-text {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
-
+  
   .hero-text h1 {
     font-size: 1.8rem;
   }
-
+  
   .hero-text h2 {
     font-size: 1.3rem;
   }
-
+  
   .hero-image .circle {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero-image img {
     width: 180px;
     height: 180px;
   }
-
-  .hero-image img {
-    width: 160px;
-    height: 160px;
-  }
-
+  
   /* Fix grid for mobile */
   .grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 15px;
   }
 }
