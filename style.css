@@ -291,7 +291,7 @@ footer {
   font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: all 0.3s eas
+  transition: all 0.3s ease; /* Fixed: was "eas" */
 }
 
 section {
@@ -408,36 +408,35 @@ section {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(34, 211, 238, 1.35);
 }
-
 /* ===============================
    MOBILE NAVBAR ONLY (PC UNCHANGED)
    =============================== */
 @media (max-width: 768px) {
-
   /* Keep navbar at top */
   .navbar {
     position: sticky;
     top: 0;
     z-index: 2000;
-
+    
     flex-direction: column;
     align-items: stretch;
     padding: 12px 16px;
+    min-height: auto; /* Add this */
   }
 
   /* First row: theme + logo */
-  .navbar > div,
-  .navbar .logo {
+  .navbar > div:first-child {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
-
-  .navbar > div {
-    justify-content: flex-start;
+    width: 100%;
     margin-bottom: 12px;
   }
 
+  /* Move logo inside the first div */
   .logo {
+    display: flex;
+    align-items: center;
     justify-content: center;
     width: 100%;
   }
@@ -450,30 +449,53 @@ section {
   .navbar ul {
     display: flex;
     flex-direction: row;
-    gap: 12px;
-
+    gap: 8px; /* Reduced gap */
     overflow-x: auto;
-    padding-bottom: 6px;
+    padding: 8px 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
   }
 
   .navbar ul::-webkit-scrollbar {
-    display: none;
+    display: none; /* Hide scrollbar */
   }
 
   .navbar ul li {
     flex-shrink: 0;
   }
 
+  /* Make buttons smaller for mobile */
   .navbar ul a {
     white-space: nowrap;
-    font-size: 0.95rem;
-    padding: 10px 18px;
+    font-size: 0.85rem; /* Smaller font */
+    padding: 8px 14px; /* Smaller padding */
   }
 
-  /* Hero spacing */
+  /* Adjust hero section */
   .hero {
-    padding-top: 40px;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-text {
+    margin-bottom: 40px;
+  }
+
+  .hero-image .circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-image img {
+    width: 180px;
+    height: 180px;
+  }
+
+  /* Fix grid for mobile */
+  .grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 15px;
   }
 }
-
 
