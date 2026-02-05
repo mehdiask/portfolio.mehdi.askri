@@ -50,11 +50,3 @@ backToTop.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
-
-// ===== HAMBURGER MENU TOGGLE =====
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.querySelector(".navbar ul");
-
-hamburger.addEventListener("click", () => {
-  navMenu.classList.toggle("show");
-});
