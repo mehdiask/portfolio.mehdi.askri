@@ -552,5 +552,6 @@ section {
     height: 56px;
     bottom: 20px;
     right: 20px;
+    z-index: 9999; /* Ensure it's above everything */
   }
 }
