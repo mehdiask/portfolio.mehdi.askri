@@ -72,6 +72,7 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
 // ===== MOBILE MENU =====
 const mobileBtn = document.getElementById("mobileMenuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
