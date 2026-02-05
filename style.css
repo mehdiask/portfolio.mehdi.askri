@@ -546,4 +546,11 @@ section {
     grid-template-columns: 1fr;
     gap: 15px;
   }
+  /* back-to-top for mobile*/
+  .back-to-top {
+    width: 56px;
+    height: 56px;
+    bottom: 20px;
+    right: 20px;
+  }
 }
