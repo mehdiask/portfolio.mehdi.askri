@@ -374,16 +374,17 @@ section {
 }
 
 /* ===== DOWNLOAD CV BUTTON ===== */
+
 .cv-btn {
   display: inline-block;
-  margin-top: 20px;
   padding: 12px 22px;
   border-radius: 30px;
-  background: var(--accent);
-  color: white;
+  background: linear-gradient(135deg, #0ea5a4, #22d3ee);
+  color: #020617;
   font-weight: 600;
-  text-decoration: none;
+  cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
   text-shadow: none;
   z-index: 4;
   position: relative;
@@ -394,11 +395,13 @@ section {
   box-shadow: 0 12px 28px rgba(34, 211, 238, 1.35);
 }
 
-[data-theme="dark"] .cv-btn {
-  background: var(--accent);
+ [data-theme="dark"] .cv-btn {
+  border-radius: 30px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #0ea5a4, #22d3ee);
   color: white;
-}
-
+ }
+ 
 /* ===== FADE-IN ANIMATION ===== */
 .fade-in {
   opacity: 0;
