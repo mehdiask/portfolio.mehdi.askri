@@ -35,6 +35,7 @@
   /* Hero elements */
   --circle-color: #64748b;    /* Medium gray circle */
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -46,8 +47,6 @@ body {
   color: var(--text-main);
   transition: background 0.3s, color 0.3s;
 }
-
-
 
 /* ===== NAVBAR ===== */
 .navbar {
@@ -62,7 +61,6 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-
 .navbar ul {
   list-style: none;
   display: flex;
@@ -74,6 +72,7 @@ body {
   color: var(--text);
   font-weight: 500;
 }
+
 .about-btn {
   display: flex;
   align-items: center;
@@ -92,6 +91,7 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(34, 211, 238, 1.35);
 }
+
 .skills-btn {
   display: flex;
   align-items: center;
@@ -110,6 +110,7 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(34, 211, 238, 1.35);
 }
+
 .experience-btn {
   display: flex;
   align-items: center;
@@ -166,13 +167,51 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(34, 211, 238, 1.35);
 }
-  /* ===== HERO ===== */
+
+/* ===== HERO WITH BACKGROUND IMAGE ===== */
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 80px 10%;
-  background: var(--hero-bg);
+  padding: 40px 10%; /* Reduced padding for smaller header */
+  position: relative;
+  min-height: 350px; /* Smaller height */
+  overflow: hidden;
+}
+
+/* Brighter background image for hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)), /* Light overlay for brightness */
+    url('ectronique.jpg') no-repeat center center;
+  background-size: cover;
+  filter: brightness(1.2); /* Increase brightness */
+  z-index: 1;
+}
+
+/* Lighter overlay for better text readability */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Lighter overlay */
+  z-index: 2;
+}
+
+/* Ensure hero content stays above background */
+.hero-text,
+.hero-image {
+  position: relative;
+  z-index: 3;
 }
 
 .hero-text {
@@ -180,49 +219,50 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem; /* Slightly smaller */
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
 }
 
 .hero-text h2 {
-  font-size: 2rem;
-  color: var(--accent);
+  font-size: 1.8rem; /* Slightly smaller */
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 15px;
 }
 
-/* Dark mode override */
-[data-theme="dark"] .hero-text h2 {
-  color: var(--muted);
+.hero-text p {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
 }
 
-
+/* Smaller hero image circle */
 .hero-image .circle {
-  width: 280px;
-  height: 280px;
+  width: 240px; /* Smaller */
+  height: 240px; /* Smaller */
   border-radius: 50%;
-  background: var(--accent);
+  background: rgba(255, 255, 255, 0.25); /* More transparent for brightness */
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* Dark mode circle */
-[data-theme="dark"] .hero-image .circle {
-  background: var(--circle);
-}
-
-[data-theme="dark"] .hero-image img {
-  box-shadow: 0 0 0 6px #020617;
-}
-
-[data-theme="dark"] .hero-text p {
-  color: #cbd5f5;
+  border: 3px solid white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .hero-image img {
-  width: 240px;
-  height: 240px;
+  width: 200px; /* Smaller */
+  height: 200px; /* Smaller */
   border-radius: 50%;
   object-fit: cover;
   background: white;
+}
+
+/* Dark mode adjustments for hero */
+[data-theme="dark"] .hero::after {
+  background: rgba(0, 0, 0, 0.4); /* Slightly darker in dark mode */
 }
 
 /* ===== SECTIONS ===== */
@@ -252,10 +292,17 @@ h3 {
 }
 
 .card {
-  background: var(--card);
+  background: var(--card-bg);
   padding: 20px;
   border-radius: 12px;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 /* ===== FOOTER ===== */
@@ -263,6 +310,8 @@ footer {
   text-align: center;
   padding: 20px;
   opacity: 0.7;
+  background: var(--nav-bg);
+  margin-top: 40px;
 }
 
 /* ===== MODERN THEME BUTTON ===== */
@@ -323,6 +372,7 @@ section {
   height: 36px;
   object-fit: contain;
 }
+
 /* ===== DOWNLOAD CV BUTTON ===== */
 .cv-btn {
   display: inline-block;
@@ -330,10 +380,13 @@ section {
   padding: 12px 22px;
   border-radius: 30px;
   background: var(--accent);
-  color: #020617;
+  color: white;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  text-shadow: none;
+  z-index: 4;
+  position: relative;
 }
 
 .cv-btn:hover {
@@ -342,15 +395,8 @@ section {
 }
 
 [data-theme="dark"] .cv-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 22px;
-  border-radius: 30px;
-  background: var(--accent); /* Keep using --accent */
-  color: #ffffff;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  background: var(--accent);
+  color: white;
 }
 
 /* ===== FADE-IN ANIMATION ===== */
@@ -525,19 +571,20 @@ section {
     /* Add any special styling for this button on mobile if desired */
   }
   
-  /* Adjust hero section */
+  /* Adjust hero section for mobile - smaller */
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
+    min-height: 300px; /* Smaller for mobile */
   }
   
   .hero-text {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   
   .hero-text h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   
   .hero-text h2 {
@@ -545,13 +592,18 @@ section {
   }
   
   .hero-image .circle {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
   
   .hero-image img {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
+  }
+  
+  /* Ensure background image covers properly on mobile */
+  .hero::before {
+    background-attachment: scroll;
   }
   
   /* Fix grid for mobile */
@@ -559,6 +611,7 @@ section {
     grid-template-columns: 1fr;
     gap: 15px;
   }
+  
   /* Fix Back to Top button for mobile/iOS */
   /* Ensure back-to-top button stays in front on mobile */
   .back-to-top {
@@ -642,26 +695,65 @@ section {
   color: white;
 }
 
-/* Ensure cards in contact section have transparent background */
+/* Skills card styling */
 #skills .card {
-  background: rgba(64, 64, 64, 0.1);
+  background: var(--card-bg);
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  color: #020617;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-main);
 }
 
-/* Dark mode override */
+/* Dark mode override for skills cards */
 [data-theme="dark"] #skills .card {
-  color: var(--muted);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* H4 styling */
 h4 {
-  color: var(--accent); /* This will match your h2 color */
+  color: var(--accent);
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
-/* Dark mode override */
+/* Dark mode override for h4 */
 [data-theme="dark"] h4 {
-  color: var(--muted);
+  color: var(--accent);
+}
+
+/* Additional mobile adjustments for extra small screens */
+@media (max-width: 480px) {
+  .hero {
+    padding: 25px 15px;
+    min-height: 280px;
+  }
+  
+  .hero-text h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-text h2 {
+    font-size: 1.2rem;
+  }
+  
+  .hero-image .circle {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .hero-image img {
+    width: 140px;
+    height: 140px;
+  }
+  
+  /* Adjust overlay for smaller screens */
+  .hero::after {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Make hero image even brighter on small screens */
+  .hero::before {
+    filter: brightness(1.3);
+  }
 }
