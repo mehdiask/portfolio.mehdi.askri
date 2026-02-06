@@ -207,6 +207,21 @@ body {
   z-index: 2;
 }
 
+/* ===== HERO TEXT BACKGROUND ===== */
+.hero-text {
+  background: rgba(50, 50, 50, 0.5); /* Semi-transparent dark background */
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px); /* Optional: adds glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode adjustment for hero text background */
+[data-theme="dark"] .hero-text {
+  background: rgba(0, 0, 0, 0.8); /* Slightly darker for dark mode */
+}
+
 /* Ensure hero content stays above background */
 .hero-text,
 .hero-image {
