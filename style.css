@@ -722,6 +722,11 @@ h4 {
   color: white;
 }
 
+/* Dark mode override for h4 */
+[data-theme="dark"] p {
+  color: white;
+}
+
 /* Additional mobile adjustments for extra small screens */
 @media (max-width: 480px) {
   .hero {
