@@ -383,15 +383,19 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-
   transition:
     opacity 0.3s ease,
     transform 0.3s ease,
     visibility 0.3s ease;
+  
+  /* ADD THESE LINES TO MAKE IT FRONTEND */
+  z-index: 9999; /* Higher than everything else */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow to make it stand out */
+  pointer-events: auto; /* Ensure it's always clickable */
 }
 
 /* Show button */
@@ -404,6 +408,17 @@ section {
 /* Dark mode tweak */
 [data-theme="dark"] .back-to-top {
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+}
+
+.back-to-top .arrow {
+  font-size: 3rem;   /* BIG arrow */
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(34, 211, 238, 1.35);
 }
 
 .back-to-top .arrow {
@@ -547,22 +562,19 @@ section {
     gap: 15px;
   }
   /* Fix Back to Top button for mobile/iOS */
+  /* Ensure back-to-top button stays in front on mobile */
   .back-to-top {
-    width: 50px;
-    height: 50px;
-    bottom: 80px; /* Move it up to avoid the iOS navigation bar */
-    right: 20px;
-    background: var(--accent);
-    z-index: 9999;
+    z-index: 9999; /* Ensure it's above mobile navbar and everything */
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
   }
   
-  .back-to-top .arrow {
-    font-size: 2rem;
-  }
-  
-  /* Optional: Add a shadow to make it more visible */
+  /* Optional: Make it slightly larger on mobile for better touch */
   .back-to-top {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 52px;
+    height: 52px;
   }
 }
 
