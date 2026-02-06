@@ -17,26 +17,24 @@
   --circle-color: #9ca3af;    /* Gray circle */
 }
 
-/* DARK THEME */
+/* DARK THEME - EXTRA LIGHT VERSION */
 [data-theme="dark"] {
-  /* Layout */
-  --nav-bg: #020617;          /* Navbar (darkest) */
-  --page-bg: #0b1220;         /* Main page */
-  --hero-bg: #0e1627;         /* Hero section */
-  --card-bg: #0f172a;
+  /* Layout - Much lighter backgrounds */
+  --nav-bg: #252a3a;          /* Very light dark blue-gray */
+  --page-bg: #1c212e;         /* Light charcoal blue */
+  --hero-bg: #212737;         /* Slightly darker than page */
+  --card-bg: #2d3448;         /* Light blue-gray cards */
 
   /* Text */
-  --text-main: #ffffff;       /* White text */
-  --text-muted: #9ca3af;      /* Gray text */
+  --text-main: #f8fafc;       /* Very light off-white */
+  --text-muted: #a8b2d1;      /* Light blue-gray text */
 
   /* Accent */
-  --accent: #22d3ee;
+  --accent: #60a5fa;          /* Bright blue accent */
 
   /* Hero elements */
-  --circle-color: #6b7280;    /* Gray circle */
+  --circle-color: #64748b;    /* Medium gray circle */
 }
-
-
 html {
   scroll-behavior: smooth;
 }
@@ -642,4 +640,17 @@ section {
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
+}
+
+/* Ensure cards in contact section have transparent background */
+#skills .card {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #020617;
+}
+
+/* Dark mode override */
+[data-theme="dark"] #skills .card {
+  color: var(--muted);
 }
