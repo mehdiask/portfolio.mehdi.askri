@@ -568,18 +568,33 @@ section {
 
 /* ===== CONTACT BACKGROUND PHOTO ===== */
 #contacts {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* Dark gradient overlay */
-                    url('contact-background.jpg'); /* Your photo here */
+  background-image: url('contact-background.jpg'); /* Your photo here */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll; /* Changed from fixed for mobile */
   max-width: none;
   width: 100%;
   margin: 60px 0 0 0;
   padding: 60px 20px;
   border-radius: 0;
   position: relative;
+}
+
+/* Optional overlay for better text contrast */
+#contacts::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+#contacts > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* Make text white for better visibility */
@@ -598,40 +613,9 @@ section {
   text-decoration: underline;
 }
 
-/* ===== MOBILE OPTIMIZATION ===== */
+/* Mobile adjustment */
 @media (max-width: 768px) {
   #contacts {
     padding: 40px 15px;
-    background-attachment: scroll; /* Important for mobile */
-    background-position: center center; /* Ensure proper centering */
-  }
-  
-  /* Ensure text is large enough on mobile */
-  #contacts h3 {
-    font-size: 1.5rem;
-  }
-  
-  #contacts p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  
-  /* Make links more touch-friendly */
-  #contacts a {
-    padding: 2px 0;
-    display: inline-block;
-  }
-}
-
-/* ===== FOR VERY SMALL SCREENS ===== */
-@media (max-width: 480px) {
-  #contacts {
-    padding: 30px 10px;
-  }
-  
-  /* Stack grid items vertically on very small screens */
-  #contacts .grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
   }
 }
