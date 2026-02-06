@@ -209,7 +209,7 @@ body {
 
 /* ===== HERO TEXT BACKGROUND ===== */
 .hero-text {
-  background: rgba(50, 50, 50, 0.5); /* Semi-transparent dark background */
+  background: rgba(50, 50, 50, 0.4); /* Semi-transparent dark background */
   padding: 30px;
   border-radius: 15px;
   backdrop-filter: blur(5px); /* Optional: adds glass effect */
